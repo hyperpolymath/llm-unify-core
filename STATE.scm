@@ -15,7 +15,7 @@
   '((version . "0.1.0")
     (schema-version . "1.0")
     (created . "2025-12-15")
-    (updated . "2025-12-15")
+    (updated . "2025-12-17")
     (project . "llm-unify-core")
     (repo . "github.com/hyperpolymath/llm-unify-core")))
 
@@ -79,30 +79,53 @@
     (definition . "Stable release with comprehensive documentation and tests")
 
     (milestones
-     ((v0.2
+     ((v0.1.1
+       ((name . "Security Hardening")
+        (status . "in-progress")
+        (items
+         ("Remove duplicate CI workflows"
+          "Add SPDX headers to all config files"
+          "Remove unused package ecosystems from dependabot"
+          "Verify SHA-pinned GitHub Actions"))))
+
+      (v0.2
        ((name . "Core Functionality")
         (status . "pending")
         (items
-         ("Implement primary features"
-          "Add comprehensive tests"
-          "Improve documentation"))))
+         ("Add unit tests for Conversation, Message, Metadata types"
+          "Add integration tests for Provider trait"
+          "Implement ChatGPT export parser"
+          "Implement Claude export parser"
+          "Add property-based tests with proptest"
+          "Reach 70% test coverage minimum"))))
+
+      (v0.3
+       ((name . "Provider Implementations")
+        (status . "pending")
+        (items
+         ("Implement Gemini export parser"
+          "Implement Copilot export parser"
+          "Add validation logic for each provider"
+          "Create unified export/import format"))))
 
       (v0.5
        ((name . "Feature Complete")
         (status . "pending")
         (items
-         ("All planned features implemented"
-          "Test coverage > 70%"
-          "API stability"))))
+         ("All provider parsers implemented"
+          "Test coverage > 80%"
+          "API stability and documentation"
+          "Add async support (optional feature)"))))
 
       (v1.0
        ((name . "Production Release")
         (status . "pending")
         (items
-         ("Comprehensive test coverage"
-          "Performance optimization"
-          "Security audit"
-          "User documentation complete"))))))))
+         ("Security audit completion"
+          "Performance benchmarks"
+          "Complete API documentation"
+          "Publish to crates.io"
+          "User guide and examples"))))))))
 
 ;;;============================================================================
 ;;; BLOCKERS & ISSUES
@@ -133,17 +156,19 @@
 
 (define critical-next-actions
   '((immediate
-     (("Review and update documentation" . medium)
-      ("Add initial test coverage" . high)
-      ("Verify CI/CD pipeline functionality" . high)))
+     (("Complete v0.1.1 security hardening" . high)
+      ("Add unit tests for core types" . high)
+      ("Verify CI passes on all platforms" . medium)))
 
     (this-week
-     (("Implement core features" . high)
-      ("Expand test coverage" . medium)))
+     (("Implement ChatGPT export parser" . high)
+      ("Implement Claude export parser" . high)
+      ("Add property-based tests" . medium)))
 
     (this-month
      (("Reach v0.2 milestone" . high)
-      ("Complete documentation" . medium)))))
+      ("Achieve 70% test coverage" . high)
+      ("Begin v0.3 provider implementations" . medium)))))
 
 ;;;============================================================================
 ;;; SESSION HISTORY
@@ -157,7 +182,18 @@
        ("Added META.scm, ECOSYSTEM.scm, STATE.scm"
         "Established RSR compliance"
         "Created initial project checkpoint"))
-      (notes . "First STATE.scm checkpoint created via automated script")))))
+      (notes . "First STATE.scm checkpoint created via automated script"))
+
+     ((date . "2025-12-17")
+      (session . "security-review")
+      (accomplishments
+       ("Removed duplicate rust.yml workflow (kept rust-ci.yml)"
+        "Added SPDX header to dependabot.yml"
+        "Removed unused npm/pip ecosystems from dependabot"
+        "Verified all GitHub Actions SHA-pinned"
+        "Verified cargo audit and security scanning in CI"
+        "Confirmed clippy lints pass with -D warnings"))
+      (notes . "Security review session - all workflows RSR compliant")))))
 
 ;;;============================================================================
 ;;; HELPER FUNCTIONS (for Guile evaluation)
@@ -185,10 +221,10 @@
 (define state-summary
   '((project . "llm-unify-core")
     (version . "0.1.0")
-    (overall-completion . 25)
-    (next-milestone . "v0.2 - Core Functionality")
+    (overall-completion . 30)
+    (next-milestone . "v0.1.1 - Security Hardening (in-progress)")
     (critical-blockers . 0)
     (high-priority-issues . 0)
-    (updated . "2025-12-15")))
+    (updated . "2025-12-17")))
 
 ;;; End of STATE.scm
