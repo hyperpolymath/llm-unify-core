@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Dependabot configuration for dependency updates
 version: 2
 updates:
   - package-ecosystem: "github-actions"
@@ -8,7 +10,7 @@ updates:
       actions:
         patterns:
           - "*"
-  
+
   - package-ecosystem: "cargo"
     directory: "/"
     schedule:
@@ -16,13 +18,3 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
-  
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-  
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
