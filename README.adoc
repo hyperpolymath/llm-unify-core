@@ -1,0 +1,27 @@
+= LLM Unify Core
+:toc: auto
+:toclevels: 2
+
+Core types for managing LLM conversations across multiple providers (ChatGPT, Claude, Gemini, Copilot).
+
+== Overview
+
+LLM Unify Core provides a unified interface for interacting with multiple large language model providers. Built in Rust for performance and type safety.
+
+== Supported Providers
+
+* OpenAI (ChatGPT)
+* Anthropic (Claude)
+* Google (Gemini)
+* Microsoft (Copilot)
+
+== Installation
+
+[source,bash]
+----
+cargo add llm-unify-core
+----
+
+== License
+
+AGPL-3.0-or-later
